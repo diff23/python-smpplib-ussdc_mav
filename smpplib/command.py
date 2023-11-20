@@ -696,7 +696,12 @@ class SubmitSM(Command):
         'language_indicator': Param(type=int, size=1),
         'its_reply_type': Param(type=int, size=1),
         'its_session_info': Param(type=int, size=2),
-        'ussd_service_op': Param(type=int, size=1),
+        'ussd_service_op': Param(type=ostr, max=2),
+        'ussd_session_id': Param(type=ostr, max=16),
+        'imsi': Param(type=ostr, max=32),
+        'vlr_num_ton': Param(type=str, max=7),
+        'vlr_num_npi': Param(type=str, max=7),
+        'vlr_num_addr': Param(type=ostr, max=25),
     }
 
     params_order = (
@@ -717,7 +722,8 @@ class SubmitSM(Command):
         'sms_signal', 'ms_validity', 'ms_msg_wait_facilities',
         'number_of_messages', 'alert_on_message_delivery',
         'language_indicator', 'its_reply_type', 'its_session_info',
-        'ussd_service_op',
+        'ussd_service_op', 'ussd_session_id', 'imsi', 'vlr_num_ton', 
+        'vlr_num_npi', 'vlr_num_addr',
     )
 
     def __init__(self, command, **kwargs):
@@ -795,6 +801,12 @@ class DeliverSM(SubmitSM):
         'source_network_type': Param(type=int, size=1),
         'dest_network_type': Param(type=int, size=1),
         'more_messages_to_send': Param(type=int, size=1),
+        'ussd_service_op': Param(type=ostr, max=2),
+        'ussd_session_id': Param(type=ostr, max=16),
+        'imsi': Param(type=ostr, max=32),
+        'vlr_num_ton': Param(type=str, max=7),
+        'vlr_num_npi': Param(type=str, max=7),
+        'vlr_num_addr': Param(type=ostr, max=25),
     }
 
     params_order = (
@@ -813,7 +825,9 @@ class DeliverSM(SubmitSM):
         'callback_num', 'source_subaddress',
         'dest_subaddress', 'language_indicator', 'its_session_info',
         'network_error_code', 'message_state', 'receipted_message_id',
-        'source_network_type', 'dest_network_type', 'more_messages_to_send',
+        'source_network_type', 'dest_network_type', 'more_messages_to_send', 
+        'ussd_service_op', 'ussd_session_id', 'imsi', 'vlr_num_ton', 
+        'vlr_num_npi', 'vlr_num_addr',
     )
 
     def __init__(self, command, **kwargs):
