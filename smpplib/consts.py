@@ -237,6 +237,7 @@ SMPP_INT_NOTIFICATION_REQUESTED = 0x10  # Intermediate notification requested
 # SMPP protocol versions.
 SMPP_VERSION_33 = 0x33
 SMPP_VERSION_34 = 0x34
+SMPP_SERVICE_TYPE = 'USSD'
 
 
 # Network types.
@@ -367,13 +368,20 @@ OPTIONAL_PARAMS = {
     'delivery_failure_reason': 0x0425,
     'more_messages_to_send': 0x0426,
     'message_state': 0x0427,
-    'ussd_service_op': 0x0501,
+    #'ussd_service_op': 0x0501,
+    'ussd_service_op': 0x501,
     'display_time': 0x1201,
     'sms_signal': 0x1203,
     'ms_validity': 0x1204,
     'alert_on_message_delivery': 0x130C,
     'its_reply_type': 0x1380,
     'its_session_info': 0x1383,
+    'ussd_session_id': 0x1501,
+    'imsi': 0x1502,
+    'vlr_num_ton': 0x1503,
+    'vlr_num_npi': 0x1504,
+    'vlr_num_addr': 0x1505,
+    'xz':0x0,
 }
 
 
